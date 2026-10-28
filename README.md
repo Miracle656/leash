@@ -42,8 +42,11 @@ Spending is recorded at validation. If the call later reverts, the budget stays 
 | KernelFactory | [`0xD0595f6f50147767280d42C404e35c1EBFd09537`](https://scan.botchain.ai/address/0xD0595f6f50147767280d42C404e35c1EBFd09537) |
 | ECDSAValidator (owner key) | [`0x888E8df947844bc7063B51E5b5C97b144F255be0`](https://scan.botchain.ai/address/0x888E8df947844bc7063B51E5b5C97b144F255be0) |
 | EntryPoint v0.7 | `0x0000000071727De22E5E9d8BAf0edAc6f37da032` |
+| LeashManifest (owned index of the above) | [`0x083EF86c7606A260240C69A4A82ACdF2588D9A97`](https://scan.botchain.ai/address/0x083EF86c7606A260240C69A4A82ACdF2588D9A97) |
 
 Deployed with CREATE2 (salt `keccak256("leash.v1")`), so the same addresses apply on any chain the script runs on.
+LeashManifest is deployed directly by the project wallet and owned by it, so the project can prove control of it;
+[`tally.json`](tally.json) links these contracts to this repository on [Tally](https://tallyarc.tech).
 
 ### Live run on mainnet
 
@@ -62,7 +65,8 @@ A leashed agent with a 0.002 BOT daily budget that may only pay its owner, throu
 |---|---|
 | `src/LeashPolicy.sol` | The policy: budgets, allowlist, validity, freeze |
 | `src/LeashSigner.sol` | The agent key (EIP-191 over the user operation hash) |
-| `test/` | 24 tests against the real EntryPoint v0.7 bytecode (fetched from BOT mainnet) and Kernel built from source |
+| `src/LeashManifest.sol` | Owned on-chain index of the official addresses |
+| `test/` | 26 tests against the real EntryPoint v0.7 bytecode (fetched from BOT mainnet) and Kernel built from source |
 | `script/Deploy.s.sol` | Idempotent CREATE2 deployment of the full stack |
 | `client/` | TypeScript (viem): builds owner and agent user operations, talks to the bundler; `src/live.ts` is the run above |
 | `deployments/677.json` | Mainnet addresses |
