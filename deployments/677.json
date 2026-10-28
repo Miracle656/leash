@@ -1,0 +1,9 @@
+{
+  "chainId": 677,
+  "ecdsaValidator": "0x888E8df947844bc7063B51E5b5C97b144F255be0",
+  "entryPoint": "0x0000000071727De22E5E9d8BAf0edAc6f37da032",
+  "kernelFactory": "0xD0595f6f50147767280d42C404e35c1EBFd09537",
+  "kernelImpl": "0x35345d0D46fe39739d3C7A0d347F9D0813D803Df",
+  "leashPolicy": "0x7036066bEe567C1f9719ee28d21fC50D857AFb9f",
+  "leashSigner": "0x39848370bb2cfCEC6F1268b7DAe6878fcEeCF4dd"
+}
